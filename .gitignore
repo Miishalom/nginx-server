@@ -1,0 +1,37 @@
+# Project cache
+**/.idea/
+**/__pycache__/
+
+# Old versions and tests
+**/trash/
+/cloudgram-tests
+
+# Environment
+**/.venv/
+**/node_modules/
+.env
+redis.conf
+
+# Files not for server
+main.py
+config.py
+package.json
+package-lock.json
+
+
+# Logs folders !!
+logs/*
+!logs/.gitkeep
+
+cloudgram-database/logs/*
+!cloudgram-database/logs/.gitkeep
+
+cloudgram-files/logs/*
+!cloudgram-files/logs/.gitkeep
+
+# Data folders
+cloudgram-files/data/download/*
+!cloudgram-files/data/download/.gitkeep
+
+cloudgram-files/data/upload/*
+!cloudgram-files/data/upload/.gitkeep
