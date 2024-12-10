@@ -1,4 +1,5 @@
 # Project cache
+.idea
 **/.idea/
 **/__pycache__/
 
