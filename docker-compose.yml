@@ -24,8 +24,8 @@ services:
       - www-html:/var/www/html
     depends_on:
       - nginx
-    command: |
-      certonly --webroot -w /var/www/html \
+    command: >
+      sh -c "certonly --webroot -w /var/www/html \
       --email mmlomonosov@gmail.com \
       -d cloudgram.online \
       -d api.cloudgram.online \
@@ -35,7 +35,7 @@ services:
       --cert-name=certfolder \
       --key-type rsa \
       --agree-tos \
-      --non-interactive
+      --non-interactive"
     ports:
       - "6000:80"
 
