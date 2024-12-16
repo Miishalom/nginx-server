@@ -7,7 +7,7 @@ RUN apt-get update && \
 
 RUN mkdir -p /var/spool/cron/crontabs
 
-RUN echo $DOMAINS_ARGS
+CMD echo $DOMAINS_ARGS
 
 # Команда для получения сертификатов
 CMD ["/bin/bash", "-c", "\
