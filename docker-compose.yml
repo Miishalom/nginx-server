@@ -16,21 +16,35 @@ services:
       - www-html:/var/www/html
 
   certbot:
-    image: certbot/certbot
+    build:
+      context: .
+      dockerfile: certbot.dockerfile
     volumes:
       - etc-letsencrypt:/etc/letsencrypt
       - www-html:/var/www/html
-      - certbot-cron:/var/spool/cron/crontabs
     depends_on:
       - nginx
-    command: certonly --webroot -w /var/www/html --email mmlomonosov@gmail.com -d cloudgram.online -d api.cloudgram.online -d app.cloudgram.online -d funpay.cloudgram.online -d test.cloudgram.online --cert-name=certfolder --key-type rsa --agree-tos --non-interactive
     ports:
       - "6000:80"
-    tty: true
+#    tty: true
+    environment:
+      WORKDIR: /var/www/html
+      EMAIL: myemail@gmail.com
+      DOMAINS_ARGS: cloudgram.online,api.cloudgram.online,app.cloudgram.online,funpay.cloudgram.online,test.cloudgram.online
 
+#  certbot:
+#    image: certbot/certbot
+#    volumes:
+#      - etc-letsencrypt:/etc/letsencrypt
+#      - www-html:/var/www/html
+#    depends_on:
+#      - nginx
+#    command: certonly --webroot -w /var/www/html --email mmlomonosov@gmail.com -d cloudgram.online -d api.cloudgram.online -d app.cloudgram.online -d funpay.cloudgram.online -d test.cloudgram.online --cert-name=certfolder --key-type rsa --agree-tos --non-interactive
+#    ports:
+#      - "6000:80"
+#    tty: true
 
 
 volumes:
   www-html:
   etc-letsencrypt:
-  certbot-cron:
