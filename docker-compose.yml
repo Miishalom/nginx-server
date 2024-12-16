@@ -23,10 +23,11 @@ services:
       - certbot-cron:/var/spool/cron/crontabs
     depends_on:
       - nginx
-    command: certbot certonly --webroot -w /var/www/html --email mmlomonosov@gmail.com -d cloudgram.online -d api.cloudgram.online -d app.cloudgram.online -d funpay.cloudgram.online -d test.cloudgram.online --cert-name=certfolder --key-type rsa --agree-tos --non-interactive
+    command: certonly --webroot -w /var/www/html --email mmlomonosov@gmail.com -d cloudgram.online -d api.cloudgram.online -d app.cloudgram.online -d funpay.cloudgram.online -d test.cloudgram.online --cert-name=certfolder --key-type rsa --agree-tos --non-interactive
     ports:
       - "6000:80"
     tty: true
+
 
 
 volumes:
