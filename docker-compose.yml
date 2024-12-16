@@ -26,7 +26,6 @@ services:
       - nginx
     ports:
       - "6000:80"
-    tty: true
     command: certbot certificates
     environment:
       WORKDIR: /var/www/html
