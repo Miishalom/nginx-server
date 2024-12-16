@@ -32,3 +32,4 @@ services:
 volumes:
   www-html:
   etc-letsencrypt:
+  certbot-cron:
