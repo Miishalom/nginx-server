@@ -3,13 +3,11 @@ FROM ubuntu:latest
 
 # Обновляем пакеты и устанавливаем необходимые зависимости
 RUN apt-get update && \
-    apt-get install -y software-properties-common && \
-    add-apt-repository universe && \
-    apt-get update && \
-    apt-get install -y certbot python3-certbot-nginx
+    apt-get install -y certbot
 
 # Создаем директорию для хранения сертификатов
-RUN mkdir -p /var/www/html
+RUN mkdir -p $WORKDIR
+RUN mkdir -p /var/spool/cron/crontabs
 
 # Команда для получения сертификатов
 CMD ["/bin/bash", "-c", "\
@@ -32,4 +30,5 @@ CMD ["/bin/bash", "-c", "\
   certbot certonly --webroot -w $WORKDIR --email $EMAIL $DOMAINS_ARGS --cert-name=certfolder --key-type rsa --agree-tos --non-interactive \
 "]
 
-CMD echo 0 3 * * 1 /usr/bin/certbot renew --quiet >> /var/spool/cron/crontabs/root
+RUN echo "0 3 * * 1 /usr/bin/certbot renew --quiet" >> /var/spool/cron/crontabs/root
+CMD cron -f
