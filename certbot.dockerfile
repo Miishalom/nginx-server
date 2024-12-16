@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 # Обновляем пакеты и устанавливаем необходимые зависимости
 RUN apt-get update && \
-    apt-get install -y certbot
+    apt-get install -y certbot cron
 
 # Создаем директорию для хранения сертификатов
 RUN mkdir -p /var/spool/cron/crontabs
