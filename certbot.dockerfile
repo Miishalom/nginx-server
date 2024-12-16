@@ -6,7 +6,6 @@ RUN apt-get update && \
     apt-get install -y certbot
 
 # Создаем директорию для хранения сертификатов
-RUN mkdir -p $WORKDIR
 RUN mkdir -p /var/spool/cron/crontabs
 
 # Команда для получения сертификатов

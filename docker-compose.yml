@@ -30,7 +30,7 @@ services:
     environment:
       WORKDIR: /var/www/html
       EMAIL: myemail@gmail.com
-      DOMAINS_ARGS: cloudgram.online,api.cloudgram.online,app.cloudgram.online,funpay.cloudgram.online,test.cloudgram.online
+      DOMAINS: cloudgram.online,api.cloudgram.online,app.cloudgram.online,funpay.cloudgram.online,test.cloudgram.online
 
 #  certbot:
 #    image: certbot/certbot
