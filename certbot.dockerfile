@@ -31,3 +31,6 @@ CMD ["/bin/bash", "-c", "\
 
 RUN echo "0 3 * * 1 /usr/bin/certbot renew --quiet" >> /var/spool/cron/crontabs/root
 CMD cron -f
+
+RUN echo "`(certbot certificates`"
+RUN echo "`(crontab -l`"
