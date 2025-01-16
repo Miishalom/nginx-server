@@ -15,7 +15,9 @@ services:
       - etc-letsencrypt:/etc/letsencrypt
       - www-html:/var/www/html
 
-  certbot-renew:
+  certbot:
+    container_name: certbot
+    restart: always
     image: certbot/certbot
     volumes:
       - etc-letsencrypt:/etc/letsencrypt
