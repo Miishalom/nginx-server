@@ -22,7 +22,7 @@ services:
     volumes:
       - etc-letsencrypt:/etc/letsencrypt
       - www-html:/var/www/html
-      - ./log/certbot.log:/var/log/letsencrypt/letsencrypt.log
+      - ./log/letsencrypt.log:/var/log/letsencrypt/letsencrypt.log
     ports:
       - "6000:80"
     depends_on:
