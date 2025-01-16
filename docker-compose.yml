@@ -15,23 +15,6 @@ services:
       - etc-letsencrypt:/etc/letsencrypt
       - www-html:/var/www/html
 
-#  certbot:
-#    build:
-#      context: .
-#      dockerfile: certbot.dockerfile
-#    volumes:
-#      - etc-letsencrypt:/etc/letsencrypt
-#      - www-html:/var/www/html
-#    depends_on:
-#      - nginx
-#    ports:
-#      - "6000:80"
-#    command: certbot certificates
-#    environment:
-#      WORKDIR: /var/www/html
-#      EMAIL: myemail@gmail.com
-#      DOMAINS: cloudgram.online,api.cloudgram.online,app.cloudgram.online,funpay.cloudgram.online,test.cloudgram.online
-
   certbot:
     image: certbot/certbot
     volumes:
@@ -43,6 +26,13 @@ services:
     ports:
       - "6000:80"
     tty: true
+
+  certbot-renew:
+    image: certbot/certbot
+    volumes:
+      - etc-letsencrypt:/etc/letsencrypt
+      - www-html:/var/www/html
+    command: renew
 
 
 volumes:
