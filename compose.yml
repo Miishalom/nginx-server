@@ -11,7 +11,7 @@ services:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/robots.txt:/var/www/html/robots.txt
       - ./nginx/.htpasswd:/etc/nginx/.htpasswd:ro
-      - nginx-cache:/var/cache/nginx
+      - nginx-cache:/tmp/nginx_cache
       - etc-letsencrypt:/etc/letsencrypt
       - www-html:/var/www/html
 
