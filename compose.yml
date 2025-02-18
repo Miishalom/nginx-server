@@ -14,6 +14,11 @@ services:
       - nginx-cache:/tmp/nginx_cache
       - etc-letsencrypt:/etc/letsencrypt
       - www-html:/var/www/html
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost" ]
+      interval: 10s
+      timeout: 10s
+      retries: 20
 
   certbot:
     container_name: certbot

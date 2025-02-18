@@ -35,11 +35,13 @@ Go to crontab
 crontab -e
 ```
 
+Insert
+```
+docker compose run --rm certbot certonly --webroot -w /var/www/html --email mail@mail.com -d cloudgram.online -d funpay.cloudgram.online --cert-name=certfolder --key-type rsa --agree-tos --non-interactive
+```
+
+Save changes
+
 ```
 docker compose up -d --build
 ```
-
-sudo apt install apache2-utils
-sudo htpasswd -c /etc/nginx/.htpasswd your_username
-
-docker compose run --rm certbot certdocker-compose run --rm certbot certonly --webroot -w /var/www/html --email mail@mail.com -d domain.domain --cert-name=certfolder --key-type rsa --agree-tos --non-interactiveonly --webroot -w /var/www/html --email mail@mail.com -d domain.domain --cert-name=certfolder --key-type rsa --agree-tos --non-interactive
