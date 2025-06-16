@@ -37,9 +37,8 @@ crontab -e
 
 Insert
 ```
-docker compose run --rm certbot certonly --webroot -w /var/www/html --email mail@mail.com -d cloudgram.online -d funpay.cloudgram.online --cert-name=certfolder --key-type rsa --agree-tos --non-interactive
+docker compose run --rm certbot certonly --webroot -w /var/www/html --email mail@mail.com -d domain.online --cert-name=certfolder --key-type rsa --agree-tos --non-interactive
 ```
-
 Save changes
 
 ```
