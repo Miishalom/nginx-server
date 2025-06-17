@@ -37,4 +37,4 @@ cloudgram-files/data/download/*
 cloudgram-files/data/upload/*
 !cloudgram-files/data/upload/.gitkeep
 
-.DB_Store
+.DS_Store
